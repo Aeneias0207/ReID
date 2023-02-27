@@ -37,7 +37,7 @@ git clone https://github.com/KaiyangZhou/deep-person-reid.git
 
 #### 1.6a HIER DOWNLOAD DER EIGENEN REQUIREMENTS.TXT EINFÜGEN *Anschließend 1.6b entfernen und 1.6a umbenennen*
 ```console
-wget https://raw.githubusercontent.com/USER/PROJECT/master/requirements.txt
+wget https://github.com/Aeneias0207/ReID/blob/4032a250b2460480f6c84442180aedf904faee21/requirements.txt
 pip install -r requirements.txt
 ```
 
