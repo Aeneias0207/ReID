@@ -8,6 +8,10 @@ __ToDos__
 - Muss Pfad geändert werden wenn eigene requirements.txt erstellt und heruntergeladen wird? Wie wählt Linux die richtige requirements.txt aus?
 - Beschreibung unter 2.5 ergänzen wie man an die IP-Adresse der Drohne gelangt
 - *tbd Beschreibung ergänzen wie man diese die Drohne startet*
+## Installation der benötigten Komponenten (sinnvoll= zwischendurch müsste ja auch noch das Env gestartet werden? durch die Zusammenfassung würde alles kompakter werden da weniger Überschriften)
+```console
+sudo apt install git
+(sudo) bash Miniconda3-latest-Linux-x86_64.sh
 
 ## 1. Installation ReID sowie Voraussetzungen
 #### 1.1 Installation Miniconda
