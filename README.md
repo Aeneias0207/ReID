@@ -15,7 +15,7 @@ __ToDos__
 sudo apt install git
 ```
 
-## Repositories clonen
+### Repositories clonen
 ```console
 git clone https://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@github.com/Aeneias0207/ReID.git
 git clone https://github.com/KaiyangZhou/deep-person-reid.git
@@ -26,7 +26,7 @@ make && sudo make install
 sudo depmod -a
 ```
 
-## Installation Miniconda und erstellen des conda Environments
+### Installation Miniconda und erstellen des conda Environments
 ```console
 (sudo) bash Miniconda3-latest-Linux-x86_64.sh
 conda create --name torchreid python=3.8
@@ -44,6 +44,7 @@ python setup.py develop
 
 ## re-id_starterpack
 >[Link zu Sciebo](https://tu-dortmund.sciebo.de/f/321038868)
+
 Download re-id_starterpack-Ordner gesamt als .zip
 
 ```console
