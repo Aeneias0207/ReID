@@ -5,7 +5,7 @@ Letzterer ermöglicht es einen Videostream einer Crazyfliedrohne mit AIDeck empf
 
 __ToDos__  
 
-- Beschreibung unter 2.5 ergänzen wie man an die IP-Adresse der Drohne gelangt
+- Beschreibung ergänzen wie man an die IP-Adresse der Drohne gelangt
 - *tbd Beschreibung ergänzen wie man diese die Drohne startet*
 > Erklärung von Crazyswarm mit FileStructure für den Überblick und Erklärung welche Scripte für was zuständig sind
 > Erklärung Kommunikationsstruktur und Aufbau unseres Systems (Drone -> PC, PC -> Drone, Was sendet welche Befehle)
@@ -52,40 +52,5 @@ mv ~/Downloads/re-id_starterpack.zip ~/Documents
 cd ~/Documents
 unzip re-id_starterpack && rm re-id_starterpack
 cd re-id_starterpack
-unzip aideck_re-id.zip && rm aideck_re-id.zip
-unzip re-id_playground.zip && rm re-id_playground.zip
-unzip re-id_replica_UDE.zip && rm re-id_replica_UDE.zip
-unzip *.zip && rm *.zip
-```
-> Warum funktioniert der Stern nicht als Platzhalter?
-
-## 2.2 Installation Video4Linux (v4l2loopback)
->Hier fehlt ein cd und die Erstellung von einem Build Ordner (steht auch in der ReadMe von v4l2loopback)
-```console
-git clone https://github.com/umlaeute/v4l2loopback
-make && sudo make install
-sudo depmod -a
-```
-
-### v4l2loopback ausführen:
-```console
-sudo modprobe v4l2loopback
-```
-
-### Verfügbare Devices anzeigen:
-```console
-ls -1 /sys/devices/virtual/video4linux
-```
-
-### Konfigurieren und ausführen des AIDeck-Connectors
->Wo muss das geändert werden?
-```python
-# IP-Adresse der Drohne ändern sowie Devicenr.
-IP = 'XXX.XXX.XXX.XXX'
-DEVICE_NUMBER = X
-```
-
-Ausführen des gespeicherten Skripts:
-```console
-python3 ai_deck_connector.py
+unzip "*.zip" && rm *.zip
 ```
