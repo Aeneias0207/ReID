@@ -6,7 +6,7 @@ Letzterer ermöglicht es einen Videostream einer Crazyfliedrohne mit AIDeck empf
 __ToDos__  
 
 - Beschreibung ergänzen wie man an die IP-Adresse der Drohne gelangt
-- *tbd Beschreibung ergänzen wie man diese die Drohne startet*
+- *tbd Beschreibung ergänzen wie man die Drohne startet*
 > Erklärung von Crazyswarm mit FileStructure für den Überblick und Erklärung welche Scripte für was zuständig sind
 > Erklärung Kommunikationsstruktur und Aufbau unseres Systems (Drone -> PC, PC -> Drone, Was sendet welche Befehle)
 
