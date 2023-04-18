@@ -6,9 +6,7 @@ Letzterer ermöglicht es einen Videostream einer Crazyfliedrohne mit AIDeck empf
 __ToDos__  
 
 - Beschreibung ergänzen wie man an die IP-Adresse der Drohne gelangt
-- *tbd Beschreibung ergänzen wie man die Drohne startet*
-> Erklärung von Crazyswarm mit FileStructure für den Überblick und Erklärung welche Scripte für was zuständig sind
-> Erklärung Kommunikationsstruktur und Aufbau unseres Systems (Drone -> PC, PC -> Drone, Was sendet welche Befehle)
+- Testszenario einfügen am Ende, dass Installation erfolgreich war ("Starte jetzt die Programme/Führe Programm xyz aus und halte die Drohne vor den Block um zu sehen ob dieser erkannt wird")
 
 ## Installation der Requirements
 ```console
@@ -55,3 +53,6 @@ unzip re-id_starterpack && rm re-id_starterpack
 cd re-id_starterpack
 unzip "*.zip" && rm *.zip
 ```
+
+## Testcase/ Funktionstest
+> Hier einfügen
