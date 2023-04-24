@@ -39,7 +39,7 @@ cd ~/deep-person-reid
 pip install -r requirements.txt
 conda install pytorch torchvision
 python setup.py develop
-cd ~/Documents/ReID
+cd ~/Documents
 pip install -r requirements2.txt
 ```
 
