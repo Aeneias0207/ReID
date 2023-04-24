@@ -16,7 +16,6 @@ isort==4.3.21
 imageio
 pybase64
 
-cv2
 pyvirtualcam
 faiss-cpu
 pandas
