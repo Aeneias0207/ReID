@@ -37,7 +37,7 @@ conda activate torchreid
 ```console
 cd ~/Documents/REID_REPO
 pip install -r requirements.txt
-conda install pytorch torchvision -c
+conda install pytorch torchvision
 python setup.py develop
 ```
 
