@@ -3,12 +3,11 @@ import socket, struct, time
 import numpy as np
 import cv2
 import threading
+import os
 
-import pyvirtualcam
-
-IP = '192.168.2.23'
+IP = '192.168.2.22'
 PORT = 5000
-DEVICE_NUMBER = 4
+DEVICE_NUMBER = 0
 WIDTH = 324
 HEIGHT = 244
 FPS = 20
@@ -67,6 +66,12 @@ def rx_bytes(size, client_socket):
         data.extend(client_socket.recv(size-len(data)))
     return data
 
+def safe_create_folder(name):
+    if os.path.exists(name):
+        return
+    else:
+        os.mkdir(name)
+
 
 
 class Connector(threading.Thread):
@@ -76,49 +81,42 @@ class Connector(threading.Thread):
         self.factors = [1.8648577393897736, 1.2606252586922309, 1.4528872589128194]
 
         self.timer_period = 0.1  # seconds
-        
-        print("Connecting to socket on {}:{}...".format(IP,PORT))
+
+        print("Connecting to socket on {}:{}...".format(IP, PORT))
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect((IP, PORT))
         print("Socket connected")
 
-        self.cam = pyvirtualcam.Camera(width=WIDTH, height=HEIGHT, fps=FPS, device=f'/dev/video{DEVICE_NUMBER}')
+        # self.cam = pyvirtualcam.Camera(width=WIDTH, height=HEIGHT, fps=FPS, device=f'/dev/video{DEVICE_NUMBER}')
         self.count = 0
         self.img = None
-        
+
         self.startTime = time.time()
+        safe_create_folder(os.path.join(f"recordings/images_{int(self.startTime)}"))
         self.running = True
-        
+        print("Starting recording...")
         self.start()
-    
+
     def run(self):
         while self.running:
             self.timer_callback()
             time.sleep(self.timer_period)
-        cv2.destroyAllWindows()    
 
     def timer_callback(self):
-        # print("Callback")
         format, imgs = self.getImage(self.client_socket)
 
-        if imgs is not None and format == 0:
-            #self.get_logger().info('Publishing: "%s"' % self.i)
-            img = imgs[-1]
-            img = colorCorrectBayer(img,self.factors)
-
+        # if imgs is not None and format == 0:
+        #     img = imgs[-1]
+        #     img = colorCorrectBayer(img,self.factors)
 
             # push image to virtual cam
-            img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-            self.cam.send(img)
-        else:
-            print("img",imgs is None)
-            print("format",format == 0)
+            # img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+            # self.cam.send(img)
 
     def getImage(self, client_socket):
         '''
         Function to receive an image from the socket
         '''
-
         # First get the info
         packetInfoRaw = rx_bytes(4, client_socket)
         #print(packetInfoRaw)
@@ -158,21 +156,20 @@ class Connector(threading.Thread):
             # print("{}".format(1/meanTimePerImage))
 
             if format == 0:
-                bayer_img = np.frombuffer(imgStream, dtype=np.uint8)
+                bayer_img = np.frombuffer(imgStream, dtype=np.uint8)   
                 bayer_img.shape = (244, 324)
                 color_img = cv2.cvtColor(bayer_img, cv2.COLOR_BayerBG2BGR)
 
-                k = cv2.waitKey(50)
+                k = cv2.waitKey(1)
                 if k == ord('b'):
                     _,self.factors = colorBalance(color_img)
-                
-                if k == ord("q"):
+                elif k == ord('q'):
                     self.running = False
                 
                 cv2.imshow('Raw', bayer_img)
                 cv2.imshow('Color', colorCorrectBayer(color_img,self.factors))
-                cv2.imwrite(f"images/{self.count}.jpg",colorCorrectBayer(color_img,self.factors))
-                cv2.waitKey(50)
+                cv2.imwrite(os.path.join(f"recordings/images_{int(self.startTime)}", f"{self.count}.jpg"), colorCorrectBayer(color_img,self.factors))
+                cv2.waitKey(1)
                 imgs = [bayer_img,color_img]
             else:
                 nparr = np.frombuffer(imgStream, np.uint8)
