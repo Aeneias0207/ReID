@@ -35,12 +35,10 @@ conda activate torchreid
 > conda environment muss aktiv sein
 
 ```console
-cd ~/deep-person-reid
+cd ~/deep-person-reid/
 pip install -r requirements.txt
 conda install pytorch torchvision
 python setup.py develop
-cd ~/Documents
-pip install -r requirements2.txt
 ```
 
 ## re-id_starterpack
