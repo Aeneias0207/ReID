@@ -46,6 +46,8 @@ python setup.py develop
 
 Download re-id_starterpack-Ordner gesamt als .zip
 
+**entfernen**
+
 ```console
 mv ~/Downloads/re-id_starterpack.zip ~/Documents
 cd ~/Documents
