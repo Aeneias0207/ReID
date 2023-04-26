@@ -59,3 +59,39 @@ unzip "*.zip" && rm *.zip
 ## Testcase/ Funktionstest
 **Testcase 1 - Nur Bildübertragung von Drohne zum neuaufgesetzten PC**
 
+@Drohnen-PC (Dartagnan)
+```console
+cd ~/Dokumente/crazyswarm_reid_demo/crazyswarm
+. jump_to_scripts.sh
+cfclient
+```
+Im cfclient:
+- (GUI) Connect -> Connect to Crazyflie
+- (GUI) Console -> suche nach Wifi connected to ip: 192.168.2.XX
+
+@eigener Rechner
+```console
+cd ~/Dokumente/REPO_NAME
+code ai_deck_connector.py
+```
+Ändere die Variable ID-Adresse zur IP-Adresse aus dem cfclient
+```python
+IP = 192.168.2.XX
+```
+```console
+conda activate torchreid
+python3 ai_deck_connector.py
+```
+Nun sollten sich zwei Fenster öffnen die jeweils in Schwarz/Weiß-Bild der Kamera zeigen und ein Farbbild.
+Der erste Testcase ist damit erfolgreich abgeschlossen. Die Fenster schließen sich mit "Q".
+
+**Testcase 2 - Bildübertragung und Identifikation der Klötzchen**
+
+Schließe **Testcase 1** ab.
+
+```console
+conda activate torchreid
+cd ~/Dokumente/REPO_NAME
+python3 video.py
+python3 find_signature.py -v ~/PATH_TO_VIDEO/video.mp4
+```
