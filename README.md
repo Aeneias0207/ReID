@@ -57,4 +57,5 @@ unzip "*.zip" && rm *.zip
 ```
 
 ## Testcase/ Funktionstest
-> Hier einfügen
+**Testcase 1 - Nur Bildübertragung von Drohne zum neuaufgesetzten PC**
+
