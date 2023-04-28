@@ -3,12 +3,14 @@
 Diese README beschreibt die notwendigen Schritte eines clean install der deep-person-reid Software sowie des AIDeck Converters.
 Letzterer ermöglicht es einen Videostream einer Crazyfliedrohne mit AIDeck empfangen zu können. Für den Empfang des Videostreams wird kein ROS benötigt.
 
+Abschnitte welche mit **(OPTIONAL)** markiert sind werden nur benötigt falls noch nicht installiert (bspw. git).
+
 __ToDos__  
 
-- Beschreibung ergänzen wie man an die IP-Adresse der Drohne gelangt
-- Testszenario einfügen am Ende, dass Installation erfolgreich war ("Starte jetzt die Programme/Führe Programm xyz aus und halte die Drohne vor den Block um zu sehen ob dieser erkannt wird")
+- Testcase1 und 2 vervollständigen
 
 ## Installation der Requirements
+**(OPTIONAL)**
 ```console
 sudo apt install git
 ```
@@ -24,8 +26,9 @@ git clone https://github.com/umlaeute/v4l2loopback
 make && sudo make install
 sudo depmod -a
 ```
+> The depmod -a call will re-calculate module dependencies, in order to automatically load additional kernel modules required by v4l2loopback. The call may not be necessary on modern systems.
 
-### Installation Miniconda und erstellen des conda Environments
+### (OPTIONAL) Installation Miniconda und erstellen des conda Environments
 ```console
 (sudo) bash Miniconda3-latest-Linux-x86_64.sh
 conda create --name torchreid python=3.8
@@ -39,21 +42,6 @@ cd ~/deep-person-reid/
 pip install -r requirements.txt
 conda install pytorch torchvision
 python setup.py develop
-```
-
-## re-id_starterpack
->[Link zu Sciebo](https://tu-dortmund.sciebo.de/f/321038868)
-
-Download re-id_starterpack-Ordner gesamt als .zip
-
-**entfernen**
-
-```console
-mv ~/Downloads/re-id_starterpack.zip ~/Documents
-cd ~/Documents
-unzip re-id_starterpack && rm re-id_starterpack
-cd re-id_starterpack
-unzip "*.zip" && rm *.zip
 ```
 
 ## Testcase/ Funktionstest
