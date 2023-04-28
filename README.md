@@ -49,6 +49,19 @@ conda install pytorch torchvision
 python setup.py develop
 ```
 
+> Wird benötigt da Files (z.B. aideck_palletid/models/model.pth.tar) zu groß sind, um in Github hochgeladen zu werden
+## re-id_starterpack
+>[Link zu Sciebo](https://tu-dortmund.sciebo.de/f/321038868)
+Download re-id_starterpack-Ordner gesamt als .zip
+
+```console
+mv ~/Downloads/re-id_starterpack.zip ~/Documents
+cd ~/Documents
+unzip re-id_starterpack && rm re-id_starterpack
+cd re-id_starterpack
+unzip "*.zip" && rm *.zip
+```
+
 ## Testcases/ Funktionstests
 **Testcase 1 - Nur Bildübertragung von Drohne zum neuaufgesetzten PC**
 
