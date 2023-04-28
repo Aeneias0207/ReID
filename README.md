@@ -7,7 +7,7 @@ Abschnitte welche mit **(OPTIONAL)** markiert sind werden nur benötigt falls no
 
 __ToDos__  
 
-- Testcase1 und 2 vervollständigen
+- Testcase 2 vervollständigen
 
 ## Installation der Requirements
 **(OPTIONAL)**
@@ -28,12 +28,17 @@ sudo depmod -a
 ```
 > The depmod -a call will re-calculate module dependencies, in order to automatically load additional kernel modules required by v4l2loopback. The call may not be necessary on modern systems.
 
-### (OPTIONAL) Installation Miniconda und erstellen des conda Environments
+### (OPTIONAL) Installation Miniconda
 ```console
 (sudo) bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+### Erstellen des conda Environments
+```console
 conda create --name torchreid python=3.8
 conda activate torchreid
 ```
+
 ## Installation Dependencies
 > conda environment muss aktiv sein
 
@@ -44,7 +49,7 @@ conda install pytorch torchvision
 python setup.py develop
 ```
 
-## Testcase/ Funktionstest
+## Testcases/ Funktionstests
 **Testcase 1 - Nur Bildübertragung von Drohne zum neuaufgesetzten PC**
 
 @Drohnen-PC (Dartagnan)
