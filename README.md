@@ -49,8 +49,8 @@ conda install pytorch torchvision
 python setup.py develop
 ```
 
-> Wird benötigt da Files (z.B. aideck_palletid/models/model.pth.tar) zu groß sind, um in Github hochgeladen zu werden
 ## re-id_starterpack
+> Wird benötigt da Files (z.B. aideck_palletid/models/model.pth.tar) zu groß sind, um in Github hochgeladen zu werden
 >[Link zu Sciebo](https://tu-dortmund.sciebo.de/f/321038868)
 Download re-id_starterpack-Ordner gesamt als .zip
 
