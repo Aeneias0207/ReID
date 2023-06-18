@@ -20,7 +20,7 @@ sudo apt install git
 git clone https://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@github.com/Aeneias0207/ReID.git
 git clone https://github.com/KaiyangZhou/deep-person-reid.git
 ```
-> jetzt Build-Ordner erstellen, in der Readme von v4l2loopback
+> jetzt Build-Ordner erstellen, s. Readme von v4l2loopback
 ```console
 git clone https://github.com/umlaeute/v4l2loopback
 make && sudo make install
