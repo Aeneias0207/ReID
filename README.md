@@ -77,6 +77,11 @@ Im cfclient:
 
 @eigener Rechner
 ```console
+sudo modprobe v4l2loopback
+ls -1 /sys/devices/virtual/video4linux
+```
+> evtl. video device-Nummer im AI Deck Connector anpassen
+> ```console
 cd ~/Dokumente/REPO_NAME
 code ai_deck_connector.py
 ```
