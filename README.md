@@ -31,7 +31,7 @@ sudo depmod -a
 ### (OPTIONAL) Download & Installation Miniconda
 [Download von Website](https://docs.conda.io/en/latest/miniconda.html)
 ```console
-(sudo) bash Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
 ### Erstellen des conda Environments
