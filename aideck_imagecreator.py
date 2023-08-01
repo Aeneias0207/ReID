@@ -81,16 +81,32 @@ class Connector(threading.Thread):
         self.factors = [1.8648577393897736, 1.2606252586922309, 1.4528872589128194]
 
         self.timer_period = 0.1  # seconds
-
-        print("Connecting to socket on {}:{}...".format(IP, PORT))
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect((IP, PORT))
-        print("Socket connected")
+        
+        
+        # dirname = os.path.dirname(__file__)
+        # if not os.path.exists(os.path.join(dirname,'recordings')):
+        #     print(os.path.join(dirname,'recordings'))
+        #     print(os.path.exists('/home/hendrik/Documents/images/recordings'))
+        #     print('cwd(): '+ os.getcwd())
+        #     print(os.path.join(os.getcwd(),'recordings'))
+        #     print('folder does not exist')
+        # else: print('folder exists')
+        
+        # print("Connecting to socket on {}:{}...".format(IP, PORT))
+        # self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # self.client_socket.connect((IP, PORT))
+        # print("Socket connected")
 
         # self.cam = pyvirtualcam.Camera(width=WIDTH, height=HEIGHT, fps=FPS, device=f'/dev/video{DEVICE_NUMBER}')
         self.count = 0
         self.img = None
-
+        
+        # create recordings folder if not yet existent
+        dirname = os.path.dirname(__file__)
+        path = os.path.join(dirname, 'recordings')
+        if not os.path.exists(path):
+            os.mkdir(path)
+            
         self.startTime = time.time()
         safe_create_folder(os.path.join(f"recordings/images_{int(self.startTime)}"))
         self.running = True
@@ -131,6 +147,12 @@ class Connector(threading.Thread):
         [magic, width, height, depth, format, size] = struct.unpack('<BHHBBI', imgHeader)
 
         imgs = None
+        
+        # check if recordings folder exists else create it
+        dirname = os.path.dirname(__file__)
+        if not os.path.exists(os.path.join(os.getcwd(),'recordings')):
+            print('ausgeführt')
+            os.mkdir(os.path.join(os.getcwd(),'recordings'))
 
         if magic == 0xBC:
             #print("Magic is good")
@@ -165,6 +187,7 @@ class Connector(threading.Thread):
                     _,self.factors = colorBalance(color_img)
                 elif k == ord('q'):
                     self.running = False
+                
                 
                 cv2.imshow('Raw', bayer_img)
                 cv2.imshow('Color', colorCorrectBayer(color_img,self.factors))
