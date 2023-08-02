@@ -29,7 +29,7 @@ sudo depmod -a
 > The depmod -a call will re-calculate module dependencies, in order to automatically load additional kernel modules required by v4l2loopback. The call may not be necessary on modern systems.
 
 ### (OPTIONAL) Download & Installation Miniconda
-[Download von Website](https://docs.conda.io/en/latest/miniconda.html)
+[Download von Website](https://docs.conda.io/en/latest/miniconda.html)  
 WARNING: ersetze username durch tatsächlichen Username
 ```console
 cd ~/Downloads
