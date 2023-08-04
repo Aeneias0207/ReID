@@ -103,12 +103,17 @@ Nun sollten sich zwei Fenster öffnen die jeweils in Schwarz/Weiß-Bild der Kame
 Der erste Testcase ist damit erfolgreich abgeschlossen. Die Fenster schließen sich mit "Q".
 
 **Testcase 2 - Bildübertragung und Identifikation der Klötzchen**
-
-Schließe **Testcase 1** ab.
-
+*** Erstelle Video zur Identifikation via YOLO
 ```console
 conda activate torchreid
 cd ~/Dokumente/REPO_NAME
+python3 aideck_imagecreator.py
+```
+Drücke 'S' während das Fenster des Drohnenstreams aktiv ist um den derzeitigen Frame zu speichern. Wiederhole beliebig oft mit und ohne zu identifizierende Palette im Bild.
+
+Zum erstellen des Videos navigiere zuerst zum image_UHRZEIT-Ordner unterhalb des recordings-Ordners.
+```console
+cd recordings/image_UHRZEIT
 python3 video.py
 python3 find_signature.py -v ~/PATH_TO_VIDEO/video.mp4
 ```
