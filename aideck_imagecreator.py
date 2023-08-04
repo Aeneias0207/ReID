@@ -92,17 +92,17 @@ class Connector(threading.Thread):
         #     print('folder does not exist')
         # else: print('folder exists')
         
-        # print("Connecting to socket on {}:{}...".format(IP, PORT))
-        # self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # self.client_socket.connect((IP, PORT))
-        # print("Socket connected")
+        print("Connecting to socket on {}:{}...".format(IP, PORT))
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client_socket.connect((IP, PORT))
+        print("Socket connected")
 
         # self.cam = pyvirtualcam.Camera(width=WIDTH, height=HEIGHT, fps=FPS, device=f'/dev/video{DEVICE_NUMBER}')
         self.count = 0
         self.img = None
         
         # create recordings folder if not yet existent
-        dirname = os.path.dirname(__file__)
+        dirname = os.path.dirname(os.getcwd())
         path = os.path.join(dirname, 'recordings')
         if not os.path.exists(path):
             os.mkdir(path)
@@ -149,10 +149,9 @@ class Connector(threading.Thread):
         imgs = None
         
         # check if recordings folder exists else create it
-        dirname = os.path.dirname(__file__)
-        if not os.path.exists(os.path.join(os.getcwd(),'recordings')):
-            print('ausgeführt')
-            os.mkdir(os.path.join(os.getcwd(),'recordings'))
+        dirname = os.path.dirname(os.getcwd())
+        if not os.path.exists(os.path.join(dirname,'recordings')):
+            os.mkdir(os.path.join(dirname,'recordings'))
 
         if magic == 0xBC:
             #print("Magic is good")
