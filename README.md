@@ -5,10 +5,6 @@ Letzterer ermöglicht es einen Videostream einer Crazyfliedrohne mit AIDeck empf
 
 Abschnitte welche mit **(OPTIONAL)** markiert sind werden nur benötigt falls noch nicht installiert (bspw. git).
 
-__ToDos__  
-
-- Testcase 2 vervollständigen
-
 ## Installation der Requirements
 **(OPTIONAL)**
 ```console
@@ -112,6 +108,7 @@ python3 aideck_imagecreator.py
 Drücke 'S' während das Fenster des Drohnenstreams aktiv ist um den derzeitigen Frame zu speichern. Wiederhole beliebig oft mit und ohne zu identifizierende Palette im Bild.
 
 Zum erstellen des Videos navigiere zuerst zum image_UHRZEIT-Ordner unterhalb des recordings-Ordners.
+Füge dort die video.py ein.
 ```console
 cd recordings/image_UHRZEIT
 python3 video.py
